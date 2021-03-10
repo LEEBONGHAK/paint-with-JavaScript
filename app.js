@@ -1,5 +1,6 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext('2d');
+const colors = document.getElementsByClassName("jsColor");
 
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
@@ -36,6 +37,12 @@ function onMouseMove(event) {
 }
 
 
+function handleColorClick(event) {
+    const color = event.target.style.backgroundColor;
+    ctx.strokeStyle = color;
+}
+
+
 // canvas가 존재하는지 확인
 if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
@@ -43,3 +50,9 @@ if (canvas) {
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
 }
+
+
+// Array.from(object name) : object로부터 array를 만듬s
+Array.from(colors).forEach(
+    color => color.addEventListener("click", handleColorClick)
+    );
