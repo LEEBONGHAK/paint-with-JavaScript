@@ -1,6 +1,9 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext('2d');
 
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
 // context의 default 설정 (검정색, 선넓이 = 2.5)
 ctx.strokeStyle = "#2c2c2c"; 
 ctx.lineWidth = 2.5;
